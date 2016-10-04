@@ -14,10 +14,45 @@ This is the plugin for make an authentication done with Tokens.
 
 # Installation
 
+## Getting plugin
+
 You can install the plugin by manually download, or by composer
 
 ```
 composer require falco442/cakephp-token-plugin
+```
+
+## Preparing  tables
+
+Put into the table you use for authentication model ('users') the fields 'token' (varchar(255)) and 'token_created' (datetime).
+
+## Loading plugin
+
+Load the plugin by calling
+
+```PHP
+CakePlugin::loadAll();
+```
+
+or
+
+```PHP
+CakePlugin::load('TokenAuth');
+```
+
+and put the Authentication object in your `AppController.php`:
+
+```PHP
+public $components = [
+	'...',
+	'RequestHandler', 					// suggested if you want REST
+	'Auth'=>[
+		'authenticate'=>[
+			'TokenAuth.Token'
+		],
+		'unauthorizedRedirect'=>false	// suggested if you want REST
+	]
+];
 ```
 
 
