@@ -80,7 +80,13 @@ If you want an action to be public, simply use
 $this->Auth->allow(array('action-name'));
 ```
 
-in the `beforeFilter()` method in respective controller
+in the `beforeFilter()` method in respective controller.
+
+The non-public routes that a client will call shall be of the form
+
+```
+GET /uri.json?token=token-received
+```
 
 
 
@@ -103,3 +109,13 @@ cd cake-root ./Console/cake TokenAuth.token refresh --help
 ```
 
 to get some help
+
+# Useful info
+
+Since we use (mainly) token authentication for api web applications, it is useful to set REST in CakePHP (see [http://book.cakephp.org/2.0/en/development/rest.html](this page)).
+
+This is done with simple steps:
+
+* modify the `cake-root/app/Config/routes.php` by adding `Router::parseExtensions('json','xml');` (or with the extensions you desires)
+* in `cake-root/app/Controller/AppController.php` add the `RequestHandler` component; it will parse the extension of the format (json, xml, ...)
+* **if you want REST** you can map the resources (as [http://book.cakephp.org/2.0/en/development/rest.html#the-simple-setup](this page) says) with the method `Router::mapResources()`, to be put in `cake-root/app/Config/routes.php`
