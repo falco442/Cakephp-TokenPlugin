@@ -13,7 +13,7 @@ class TokenShell extends AppShell {
 		        'description' => __(""),
 		        'options' => array(
 		            'model' => array('help' => __('The Model to use.'), 'required' => true,'default'=>'User','short'=>'m'),
-		            'time' => array('help' => __('The period for which to keep tokens'), 'required' => true, 'default'=>'15 days','short'=>'t'),
+		            'time' => array('help' => __('The period for which to keep tokens'), 'required' => true, 'default'=>'-15 days','short'=>'t'),
 		            'colored'=>array('help'=>__('Make shell coloured'),'required'=>false,'default'=>false,'boolean'=>true,'short'=>'c')
 		        )
 		    )

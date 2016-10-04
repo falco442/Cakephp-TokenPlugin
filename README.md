@@ -63,3 +63,15 @@ You can reset token by calling the shell
 ```
 cd cake-root ./Console/cake TokenAuth.token refresh
 ```
+
+**Note**: 
+* the reset token task will take '-15days' as base token life, but you can customize the shell
+* the shell take the model `User` as base, but you can set any model you like
+
+Type in console
+
+```
+cd cake-root ./Console/cake TokenAuth.token refresh --help
+```
+
+to get some help
