@@ -1,6 +1,10 @@
+**Note** : This application is in development
+
+___
+
+
 # Cakephp-TokenPlugin
 
-**Note** : This application is in development
 
 This is the plugin for make an authentication done with Tokens.
 
