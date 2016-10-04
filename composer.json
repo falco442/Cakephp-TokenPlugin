@@ -1,5 +1,5 @@
 {
-	"name": "falco442/Cakephp-TokenPlugin",
+	"name": "falco442/cakephp-token-plugin",
 	"description": "Plugin for Token Authentication",
 	"type": "cakephp-plugin",
 	"keywords": ["token"],
