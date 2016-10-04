@@ -55,8 +55,36 @@ public $components = [
 ];
 ```
 
+Keep in mind that you can customize the Authentication object with the same parameters you would have used with FormAuthenticate, like `userModel` and `fields`
 
-# Reset token
+
+# Use
+
+## In Controller
+
+You can set up the login action for your controller; for example, the action `login()` in `UsersController.php`:
+
+```PHP
+public function login(){
+	$user = $this->Auth->identify($this->request,$this->response);
+	$this->set(compact('user'));
+	$this->set('_serialize',['user']);
+}
+```
+
+Since the token authentication is done mainly for API applications, all you need is to retrieve the `$user` object that contains the new token that TokenAuth automatically generates. This token will be used to do all the calls to the actions that you don't want to be publicly accessible.
+
+If you want an action to be public, simply use
+
+```PHP
+$this->Auth->allow(array('action-name'));
+```
+
+in the `beforeFilter()` method in respective controller
+
+
+
+## Reset token
 
 You can reset token by calling the shell
 
@@ -65,7 +93,7 @@ cd cake-root ./Console/cake TokenAuth.token refresh
 ```
 
 **Note**: 
-* the reset token task will take '-15days' as base token life, but you can customize the shell
+* the reset token task will take '-15 days' as base token life, but you can customize the shell
 * the shell take the model `User` as base, but you can set any model you like
 
 Type in console
