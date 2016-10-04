@@ -1,6 +1,7 @@
 <?php
 
 App::uses('FormAuthenticate', 'Controller/Component/Auth');
+App::uses('CakeTime', 'Utility');
 
 class TokenAuthenticate extends FormAuthenticate {
 
@@ -27,6 +28,7 @@ class TokenAuthenticate extends FormAuthenticate {
 
 			if($result){
 				$user['token'] = sha1(CakeText::uuid());
+				$user['token_created'] = CakeTime::format('now','%F %T');
 				if(!$userModelRegistry->save($user)){
 					return false;
 				}

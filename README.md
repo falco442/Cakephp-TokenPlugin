@@ -26,5 +26,5 @@ composer require falco442/cakephp-token-plugin
 You can reset token by calling the shell
 
 ```
-cd cake-root ./Console/cake TokenAuth.token reset
+cd cake-root ./Console/cake TokenAuth.token refresh
 ```
